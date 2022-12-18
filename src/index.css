@@ -10,6 +10,7 @@ Variables
   --clr-grey-p: #324d67;
   --clr-grey-input: #bcccdc;
   --clr-btn: #49a6e9;
+  --clr-grey-5:	#617d98;
   --clr-white: #fff;
   --clr-red-dark: #bb2525;
   --transition: all 0.3s linear;
@@ -129,4 +130,67 @@ Spinner
   border: 3px solid #ccc;
   border-top-color: var(--clr-btn);
   animation: spinner 0.6s linear infinite;
+}
+
+/* section */
+.section {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: var(--max-width);
+}
+
+@media screen and (min-width: 992px) {
+  .section {
+    width: 95vw;
+  }
+}
+
+/*
+=============== 
+Story
+===============
+*/
+.news {
+  width: 90vw;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  margin-bottom: 5rem;
+  display: grid;
+  gap: 2rem;
+}
+@media screen and (min-width: 992px) {
+  .news {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.new {
+  background: var(--clr-white);
+  border-radius: var(--radius);
+  padding: 1rem 2rem;
+}
+
+.title {
+  line-height: 1.5;
+  margin-bottom: 0.25rem;
+}
+.info {
+  margin-bottom: 0.5rem;
+  color: var(--clr-grey-5);
+}
+
+.read-link {
+  font-size: 0.85rem;
+  margin-right: 0.75rem;
+  text-transform: capitalize;
+  color: var(--clr-btn);
+}
+
+.remove-btn {
+  background: transparent;
+  color: var(--clr-red-dark);
+  border-color: transparent;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-size: 0.85rem;
 }
