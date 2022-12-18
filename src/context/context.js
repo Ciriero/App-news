@@ -5,6 +5,7 @@ import {
   SET_NEWS,
   REMOVE_NEWS,
   HANDLE_SEARCH,
+  HANDLE_PAGE,
 } from "../reducers/actions";
 
 const AppContext = createContext();
@@ -55,8 +56,17 @@ const AppProvider = ({ children }) => {
     });
   };
 
+  const handlePage = (page) => {
+    dispatch({
+      type: HANDLE_PAGE,
+      payload: page,
+    });
+  };
+
   return (
-    <AppContext.Provider value={{ ...state, handleDelete, handleSearch }}>
+    <AppContext.Provider
+      value={{ ...state, handleDelete, handleSearch, handlePage }}
+    >
       {children}
     </AppContext.Provider>
   );
