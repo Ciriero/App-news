@@ -1,3 +1,16 @@
-const reducer = (state, action) => {}
+import { SET_LOADING } from "./actions";
 
-export default reducer
+const reducer = (state, action) => {
+  switch (action.payload) {
+    case SET_LOADING:
+      return {
+        ...state,
+        isLoading: true,
+      };
+
+    default:
+      return state;
+  }
+};
+
+export default reducer;
