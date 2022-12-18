@@ -10,7 +10,7 @@ Variables
   --clr-grey-p: #324d67;
   --clr-grey-input: #bcccdc;
   --clr-btn: #49a6e9;
-  --clr-grey-5:	#617d98;
+  --clr-grey-5: #617d98;
   --clr-white: #fff;
   --clr-red-dark: #bb2525;
   --transition: all 0.3s linear;
@@ -193,4 +193,31 @@ Story
   cursor: pointer;
   text-transform: capitalize;
   font-size: 0.85rem;
+}
+
+/*
+=============== 
+Search
+===============
+*/
+.search-form {
+  width: 90vw;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+}
+.form-input {
+  width: 100%;
+  border: none;
+  border-bottom: 3px solid var(--clr-grey-input);
+  max-width: 600px;
+  background: transparent;
+  padding: 1rem;
+  font-size: 1rem;
+  color: var(--clr-grey-p);
+  text-transform: uppercase;
+  letter-spacing: var(--spacing);
+  margin-top: 1rem;
+  outline: none;
 }
