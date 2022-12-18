@@ -1,15 +1,12 @@
-import React from 'react'
-import { useGlobalContext } from '../context/context'
+import React from "react";
+import { useGlobalContext } from "../context/context";
 
 const News = () => {
-
-  const {isLoading} = useGlobalContext()
-  if(isLoading){
-    return <div className="loading"></div>
+  const { isLoading } = useGlobalContext();
+  if (isLoading) {
+    return <div className="loading"></div>;
   }
-  return (
-    <div>News</div>
-  )
-}
+  return <div>News</div>;
+};
 
-export default News
+export default News;
