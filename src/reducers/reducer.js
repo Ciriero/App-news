@@ -1,7 +1,7 @@
 import { SET_LOADING, SET_NEWS } from "./actions";
 
 const reducer = (state, action) => {
-  switch (action.payload) {
+  switch (action.type) {
     case SET_LOADING:
       return {
         ...state,

@@ -22,7 +22,7 @@ const AppProvider = ({ children }) => {
     });
     try {
       const response = await fetch(url);
-      const data = response.json();
+      const data = await response.json();
       dispatch({
         type: SET_NEWS,
         payload: { news: data.hits, tpages: data.nbPages },
