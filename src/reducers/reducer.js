@@ -25,7 +25,7 @@ const reducer = (state, action) => {
     case HANDLE_SEARCH:
       return {
         ...state,
-        query: action.payload.query,
+        query: action.payload,
         page: 0,
       };
 

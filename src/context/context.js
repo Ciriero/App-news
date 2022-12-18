@@ -39,7 +39,7 @@ const AppProvider = ({ children }) => {
 
   useEffect(() => {
     getData(`${API_URL}query=${state.query}&page=${state.page}`);
-  }, []);
+  }, [state.query]);
 
   const handleDelete = (id) => {
     dispatch({
