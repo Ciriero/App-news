@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import reducer from "../reducers/reducer";
-import { SET_LOADING } from "../reducers/actions";
+import { SET_LOADING, SET_NEWS } from "../reducers/actions";
 
 const AppContext = createContext();
 
@@ -8,6 +8,10 @@ const API_URL = "https://hn.algolia.com/api/v1/search?";
 
 const initialState = {
   isLoading: true,
+  news: [],
+  query: "react",
+  page: 0,
+  tpages: 0,
 };
 
 const AppProvider = ({ children }) => {
@@ -16,10 +20,20 @@ const AppProvider = ({ children }) => {
     dispatch({
       type: SET_LOADING,
     });
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      dispatch({
+        type: SET_NEWS,
+        payload: { news: data.hits, tpages: data.nbPages },
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
-    getData();
+    getData(`${API_URL}query=${state.query}&page=${state.page}`);
   }, []);
 
   return (
