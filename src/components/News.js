@@ -2,7 +2,7 @@ import React from "react";
 import { useGlobalContext } from "../context/context";
 
 const News = () => {
-  const { isLoading, news } = useGlobalContext();
+  const { isLoading, news, handleDelete } = useGlobalContext();
   console.log(isLoading)
   if (isLoading) {
     return <div className="loading"></div>;
@@ -25,7 +25,7 @@ const News = () => {
             >
               read more
             </a>
-            <button className="remove-btn">remove</button>
+            <button className="remove-btn" onClick={() => handleDelete(item.objectID)}>remove</button>
           </div>
         </article>
       ))}

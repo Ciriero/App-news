@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import reducer from "../reducers/reducer";
-import { SET_LOADING, SET_NEWS } from "../reducers/actions";
+import { SET_LOADING, SET_NEWS, REMOVE_NEWS } from "../reducers/actions";
 
 const AppContext = createContext();
 
@@ -36,8 +36,17 @@ const AppProvider = ({ children }) => {
     getData(`${API_URL}query=${state.query}&page=${state.page}`);
   }, []);
 
+  const handleDelete = (id) => {
+    dispatch({
+      type: REMOVE_NEWS,
+      payload: id,
+    });
+  };
+
   return (
-    <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ ...state, handleDelete }}>
+      {children}
+    </AppContext.Provider>
   );
 };
 
