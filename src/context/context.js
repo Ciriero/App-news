@@ -1,6 +1,11 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import reducer from "../reducers/reducer";
-import { SET_LOADING, SET_NEWS, REMOVE_NEWS } from "../reducers/actions";
+import {
+  SET_LOADING,
+  SET_NEWS,
+  REMOVE_NEWS,
+  HANDLE_SEARCH,
+} from "../reducers/actions";
 
 const AppContext = createContext();
 
@@ -34,7 +39,7 @@ const AppProvider = ({ children }) => {
 
   useEffect(() => {
     getData(`${API_URL}query=${state.query}&page=${state.page}`);
-  }, []);
+  }, [state.query]);
 
   const handleDelete = (id) => {
     dispatch({
@@ -43,8 +48,15 @@ const AppProvider = ({ children }) => {
     });
   };
 
+  const handleSearch = (query) => {
+    dispatch({
+      type: HANDLE_SEARCH,
+      payload: query,
+    });
+  };
+
   return (
-    <AppContext.Provider value={{ ...state, handleDelete }}>
+    <AppContext.Provider value={{ ...state, handleDelete, handleSearch }}>
       {children}
     </AppContext.Provider>
   );
