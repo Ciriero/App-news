@@ -1,4 +1,4 @@
-import { SET_LOADING } from "./actions";
+import { SET_LOADING, SET_NEWS } from "./actions";
 
 const reducer = (state, action) => {
   switch (action.payload) {
@@ -6,6 +6,13 @@ const reducer = (state, action) => {
       return {
         ...state,
         isLoading: true,
+      };
+    case SET_NEWS:
+      return {
+        ...state,
+        isLoading: false,
+        news: action.payload.news,
+        tpages: action.payload.tpages,
       };
 
     default:

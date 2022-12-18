@@ -11,7 +11,7 @@ const initialState = {
   news: [],
   query: "react",
   page: 0,
-  tpages: 0
+  tpages: 0,
 };
 
 const AppProvider = ({ children }) => {
@@ -21,14 +21,14 @@ const AppProvider = ({ children }) => {
       type: SET_LOADING,
     });
     try {
-        const response = await fetch(url);
-        const data = response.json();
-        dispatch({
-            type: SET_NEWS,
-            payload: {news: data.hits, tpages: data.nbPages}
-        })
+      const response = await fetch(url);
+      const data = response.json();
+      dispatch({
+        type: SET_NEWS,
+        payload: { news: data.hits, tpages: data.nbPages },
+      });
     } catch (error) {
-        console.log(error)
+      console.log(error);
     }
   };
 
